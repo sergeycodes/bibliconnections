@@ -83,7 +83,7 @@ form h2 {
 }
 
 
-.game-board button {
+.game-board label {
     display: flex;
     justify-content: center;
     align-content: center;
