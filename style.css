@@ -76,7 +76,7 @@ form {
 
 }
 
-form h2 {
+form .create-group-of-four {
     margin-bottom: 20px;
     font-size: small;
     color: grey;
@@ -84,8 +84,46 @@ form h2 {
 
 .game-board {
     display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 8px;
+}
+
+.row-one, .row-two, .row-three, .row-four {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 8px;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    border-radius: 10px;
+}
+
+.row-one {
+    position: relative;
+    
+}
+
+.catagory-info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.catagory-info h2, .catagory-info h4 {
+    position: relative;
+    display: flex;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+    border: 1px solid #fff;
+
 }
 
 

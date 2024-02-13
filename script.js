@@ -122,6 +122,8 @@ function groupCatagory(arr, color) {
         b2.style.background = currColor;
         b3.style.background = currColor;
 
+        groupRow();
+
         if(selectedID.includes("b0")) {
             selectedID = selectedID.filter(item => item !== "b0");
             swappable = swappable.filter(item => item !== b0);
@@ -311,6 +313,15 @@ function swap(arr1, arr2) {
     }
 }
 
+function groupRow() {
+    let b0 = document.getElementById("b0");
+    let b1 = document.getElementById("b1");
+    let b2 = document.getElementById("b2");
+    let b3 = document.getElementById("b3");
+
+    
+}
+
 
 function minusMistake() {
     let label = "m";
@@ -352,4 +363,8 @@ function shuffle() {
 
 function endGame() {
     alert("You have won the game");
+}
+
+function resetBoard() {
+
 }
