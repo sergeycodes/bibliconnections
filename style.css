@@ -125,7 +125,7 @@ form span {
 
 .errors {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     width: 150px;
    
 }
@@ -138,6 +138,16 @@ form span {
     font-weight: 100;
     color: #666666;
 
+}
+
+.errors span i {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 12px;
+    height: 12px;
+    background: #666666;
+    vertical-align: middle;
+    border-radius: 50%;
 }
 
 .button-module {
