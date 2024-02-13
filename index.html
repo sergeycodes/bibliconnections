@@ -6,7 +6,7 @@
     <title>Connections</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="shuffle()">
     <div class="titlebar">
         <em>Connections</em>
         <span id="date">November 18, 2002</span>
@@ -21,25 +21,25 @@
             <form action="">
                 <h2>Create four groups of four!</h2>
                 <div class="game-board">
-                    <label for="" class="catagory" id="b0" onclick="selectButton(id)">0</label>
-                    <label for="" class="catagory" id="b1" onclick="selectButton(id)">1</label>
-                    <label for="" class="catagory" id="b2" onclick="selectButton(id)">2</label>
-                    <label for="" class="catagory" id="b3" onclick="selectButton(id)">3</label>
+                    <label for="" class="catagory" id="b0" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b1" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b2" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b3" onclick="selectButton(id)"></label>
 
-                    <label for="" class="catagory" id="b4" onclick="selectButton(id)">4</label>
-                    <label for="" class="catagory" id="b5" onclick="selectButton(id)">5</label>
-                    <label for="" class="catagory" id="b6" onclick="selectButton(id)">6</label>
-                    <label for="" class="catagory" id="b7" onclick="selectButton(id)">7</label>
+                    <label for="" class="catagory" id="b4" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b5" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b6" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b7" onclick="selectButton(id)"></label>
 
-                    <label for="" class="catagory" id="b8" onclick="selectButton(id)">8</label>
-                    <label for="" class="catagory" id="b9" onclick="selectButton(id)">9</label>
-                    <label for="" class="catagory" id="b10" onclick="selectButton(id)">A</label>
-                    <label for="" class="catagory" id="b11" onclick="selectButton(id)">B</label>
+                    <label for="" class="catagory" id="b8" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b9" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b10" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b11" onclick="selectButton(id)"></label>
 
-                    <label for="" class="catagory" id="b12" onclick="selectButton(id)">C</label>
-                    <label for="" class="catagory" id="b13" onclick="selectButton(id)">D</label>
-                    <label for="" class="catagory" id="b14" onclick="selectButton(id)">E</label>
-                    <label for="" class="catagory" id="b15" onclick="selectButton(id)">F</label>
+                    <label for="" class="catagory" id="b12" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b13" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b14" onclick="selectButton(id)"></label>
+                    <label for="" class="catagory" id="b15" onclick="selectButton(id)"></label>
                 </div>
                 <span class="mistakes-module">
                     <p>
@@ -53,7 +53,7 @@
                     </span>
                 </span>
                 <section class="button-module">
-                    <button type="button" onclick="shuffle()">Submit</button>
+                    <button type="button" onclick="checkCatagory()">Submit</button>
                 </section>
             </form>
         </div> 
