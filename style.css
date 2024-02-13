@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Path: style.css */
+
+/* Navbar */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+nav .logo a {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titlebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+
+/* GAME BOARD */
+
+.game-module {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+form h2 {
+    margin-bottom: 20px;
+    font-size: small;
+    color: grey;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+}
+
+
+.game-board button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 80px;
+    width: 150px;
+    font-size: 20px;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #000;
+    background: #EFEFE6;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+form span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.mistakes-module {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 20px;
+}
+
+.mistakes-module p {
+    font: 16px;
+    font-size: medium;
+    color: #000;
+}
+
+.errors {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+   
+}
+
+.errors span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    font-weight: 100;
+    color: #666666;
+
+}
+
+.button-module {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-module button {
+    background-color: rgb(255,255,255);
+    color: rgb(0,0,0);
+    border-color:rgb(0,0,0);
+    
+
+    font: 16px;
+    padding: 15px 0px;
+    font-weight: 600;
+    display: flex;
+    width: fit-content;
+    min-width: 5.5em;
+    max-width: 80vw;
+    height: 3em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    line-height: 1.5em;
+    cursor: pointer;
+    border: 1px solid;
+}
