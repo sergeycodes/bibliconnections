@@ -251,8 +251,8 @@ form span {
 
 @media(max-width: 700px) {
     .game-board label {
-        width: 96px;
-        height: 96px;
+        width: 92px;
+        height: 92px;
         font-size: 16px;
     }
 }
