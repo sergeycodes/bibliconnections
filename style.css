@@ -98,11 +98,6 @@ form .create-group-of-four {
     border-radius: 10px;
 }
 
-.row-one {
-
-    
-}
-
 .row-one label {
     position: relative;
     display: flex;
@@ -254,7 +249,7 @@ form span {
     border: 1px solid;
 }
 
-@media(max-width: 650px) {
+@media(max-width: 700px) {
     .game-board label {
         width: 96px;
         height: 96px;
