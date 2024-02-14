@@ -11,12 +11,21 @@ let answeredCatagory = 0;
 
 const yellow_title = "Fruits";
 const catagory_yellow = ["Kiwi", "Lemon", "Banana", "Orange"];
+const yellow_definition = "Kiwi, Lemon, Banana, Orange";
 const green_title = "Household Pets";
 const catagory_green = ["Cat", "Dog", "Fish", "Hamster"];
+const green_definition = "Cat, Dog, Fish, Hamster";
 const blue_title = "Countries";
 const catagory_blue = ["Chili", "Turkey", "Jordan", "Togo"];
+const blue_definition = "Chili, Turkey, Jordan, Togo";
 const purple_title = "Birds";
 const catagory_purple = ["Crane", "Jay", "Swallow", "Owl"];
+const purple_definition = "Crane, Jay, Swallow, Owl";
+
+let yellow = "#FFD700";
+let green = "#00FF00";
+let blue = "#0000FF";
+let purple = "#800080";
 
 let numOfMistakes = 4;
 
@@ -49,19 +58,15 @@ function checkCatagory() {
     catagory_purple.sort();
     selectedLables.sort();
     if(isEqual(catagory_yellow, selectedLables)){
-        alert("That was " + yellow_title);
         groupCatagory(selectedLables, "yellow");
   
     } else if (isEqual(catagory_green, selectedLables)) {
-        alert("That was " + green_title);
         groupCatagory(selectedLables, "green");
  
     } else if (isEqual(catagory_blue, selectedLables)) {
-        alert("That was " + blue_title);
         groupCatagory(selectedLables, "blue");
    
     } else if (isEqual(catagory_purple, selectedLables)) {
-        alert("That was " + purple_title);
         groupCatagory(selectedLables, "purple");
 
     } else {
@@ -116,12 +121,6 @@ function groupCatagory(arr, color) {
         t3.style.background = "rgb(239, 239, 230)";
         t3.style.color = "#000000";
 
-        // yellow background color
-        b0.style.background = currColor;
-        b1.style.background = currColor;
-        b2.style.background = currColor;
-        b3.style.background = currColor;
-
         groupRow();
 
         if(selectedID.includes("b0")) {
@@ -142,6 +141,13 @@ function groupCatagory(arr, color) {
         }
 
         swap(swappable, selectedID);
+
+        b0.style.background = currColor;
+        b1.style.background = currColor;
+        b2.style.background = currColor;
+        b3.style.background = currColor;
+
+        addRowDetails("one", currColor); 
 
         selectedLables = [];
         selectedID = [];
@@ -169,11 +175,6 @@ function groupCatagory(arr, color) {
         t7.style.background = "rgb(239, 239, 230)";
         t7.style.color = "#000000";
 
-        b4.style.background = currColor;
-        b5.style.background = currColor;
-        b6.style.background = currColor;
-        b7.style.background = currColor;
-
         if(selectedID.includes("b4")) {
             selectedID = selectedID.filter(item => item !== "b4");
             swappable = swappable.filter(item => item !== b4);
@@ -193,7 +194,12 @@ function groupCatagory(arr, color) {
 
         swap(swappable, selectedID);
 
-        
+        b4.style.background = currColor;
+        b5.style.background = currColor;
+        b6.style.background = currColor;
+        b7.style.background = currColor;
+
+        addRowDetails("two", currColor);
 
         selectedLables = [];
         selectedID = [];
@@ -221,10 +227,7 @@ function groupCatagory(arr, color) {
         t11.style.background = "rgb(239, 239, 230)";
         t11.style.color = "#000000";
 
-        b8.style.background = currColor;
-        b9.style.background = currColor;
-        b10.style.background = currColor;
-        b11.style.background = currColor;
+        
         
         if(selectedID.includes("b8")) {
             selectedID = selectedID.filter(item => item !== "b8");
@@ -244,6 +247,13 @@ function groupCatagory(arr, color) {
         }
 
         swap(swappable, selectedID);
+
+        b8.style.background = currColor;
+        b9.style.background = currColor;
+        b10.style.background = currColor;
+        b11.style.background = currColor;
+
+        addRowDetails("three", currColor);
 
         selectedLables = [];
         selectedID = [];
@@ -271,10 +281,7 @@ function groupCatagory(arr, color) {
         t15.style.background = "rgb(239, 239, 230)";
         t15.style.color = "#000000";
 
-        b12.style.background = currColor;
-        b13.style.background = currColor;
-        b14.style.background = currColor;
-        b15.style.background = currColor;
+        
 
         if(selectedID.includes("b12")) {
             selectedID = selectedID.filter(item => item !== "b12");
@@ -294,6 +301,13 @@ function groupCatagory(arr, color) {
         }
 
         swap(swappable, selectedID);
+
+        b12.style.background = currColor;
+        b13.style.background = currColor;
+        b14.style.background = currColor;
+        b15.style.background = currColor;
+
+        addRowDetails("four", currColor);
 
         selectedLables = [];
         selectedID = [];
@@ -319,7 +333,47 @@ function groupRow() {
     let b2 = document.getElementById("b2");
     let b3 = document.getElementById("b3");
 
-    
+
+}
+
+function addRowDetails(row, color) {
+    let rowID = "row-" + row;
+    let rowDiv = document.getElementById(rowID);
+
+    let labels = document.querySelectorAll("#" + rowID + " label");
+
+    console.log(labels);
+    for(let i = 0; i < labels.length; i++) {
+        console.log(labels[i]);
+        labels[i].style.zIndex = "-1";
+    }
+
+    rowDiv.style.background = color;
+
+    let title = "";
+    let definition = "";
+
+    if(color === yellow) {
+        title = yellow_title;
+        definition = yellow_definition;
+    } else if (color === green) {
+        title = green_title;
+        definition = green_definition;
+    } else if (color === blue) {
+        title = blue_title;
+        definition = blue_definition;
+    } else if (color === purple) {
+        title = purple_title;
+        definition = purple_definition;
+    }
+        
+
+    let rowTitle = document.getElementById(rowID + "-title");
+    let rowDefinition = document.getElementById(rowID + "-definition");
+
+    rowTitle.innerHTML = title;
+    rowDefinition.innerHTML = definition;
+
 }
 
 
@@ -330,7 +384,7 @@ function minusMistake() {
     numOfMistakes--;
     
     if (numOfMistakes === 0) {
-        setTimeout( alert("You have lost the game"), 1000);
+        
         //resetMistakes();
     }
 }
@@ -362,7 +416,7 @@ function shuffle() {
 }
 
 function endGame() {
-    alert("You have won the game");
+    
 }
 
 function resetBoard() {

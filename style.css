@@ -89,18 +89,41 @@ form .create-group-of-four {
 }
 
 .row-one, .row-two, .row-three, .row-four {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 8px;
     justify-content: center;
     align-items: center;
-    background: red;
     border-radius: 10px;
+
+
 }
 
 .row-one {
-    position: relative;
+
     
+}
+
+.row-one label {
+    position: relative;
+    display: flex;
+    z-index: 1;
+}
+
+.row-two label {
+    display: flex;
+    z-index: 1;
+}
+
+.row-three label {
+    display: flex;
+    z-index: 1;
+}
+
+.row-four label {
+    display: flex;
+    z-index: 1;
 }
 
 .catagory-info {
@@ -111,19 +134,28 @@ form .create-group-of-four {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
    
 }
 
 .catagory-info h2, .catagory-info h4 {
     position: relative;
     display: flex;
-    color: #fff;
+    color: #000000;
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;
     margin: 0;
-    border: 1px solid #fff;
 
+}
+
+.catagory-info h2 {
+    font-size: 24px;
+}
+
+.catagory-info h4 {
+    color: #000000;
+    font-size: small;
 }
 
 
