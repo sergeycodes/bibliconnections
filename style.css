@@ -153,6 +153,7 @@ form .create-group-of-four {
 
 
 .game-board label {
+    user-select: none;
     display: flex;
     justify-content: center;
     align-content: center;
