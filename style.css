@@ -96,8 +96,6 @@ form .create-group-of-four {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-
-
 }
 
 .row-one {
@@ -255,3 +253,20 @@ form span {
     cursor: pointer;
     border: 1px solid;
 }
+
+@media(max-width: 650px) {
+    .game-board label {
+        width: 96px;
+        height: 96px;
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 400px) {
+    .game-board label {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+    }
+}
+
