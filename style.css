@@ -164,7 +164,6 @@ form .create-group-of-four {
     font-weight: 700;
     position: relative;
     cursor: pointer;
-    transition: 0.3s;
     color: #000;
     background: #EFEFE6;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
