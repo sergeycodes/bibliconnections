@@ -6,17 +6,25 @@
     <title>Connections</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="shuffle()">
+<body onload="shuffle()" id="body">
+    <div id="blocker" onclick="closeH2P()"></div>
     <div class="titlebar">
         <em>Connections</em>
         <span id="date">November 18, 2002</span>
     </div>
     <div class="toolbar-container">
         <ul class="toolbar">
-            <li><a onclick=""><img src="images/question-mark-icon.png" alt=""></a></li>
+            <li><a onclick="openH2P()"><img src="images/question-mark-icon.png" alt=""></a></li>
             <li><a onclick=""><img src="images/settings-icon.png" alt=""></a></li>
         </ul>
     </div>
+    <div id="h2p-container">
+        <ul><li><a onclick="closeH2P()">x</a></li></ul>
+        <div id="h2p">
+            <img src="images/How-To-Play.png" alt="">
+        </div>
+    </div>
+
     <article>
        <div class="game-module">
             <form action="">

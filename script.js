@@ -472,3 +472,20 @@ function endGame() {
 function resetBoard() {
 
 }
+
+function openH2P() {
+    document.getElementById("body").style.background = "rgba(0, 0, 0, 0.5)";
+    let modal = document.getElementById("h2p-container");
+    let blocker = document.getElementById("blocker");
+    modal.style.display = "flex";
+    blocker.style.display = "flex";
+    
+}
+
+function closeH2P() {
+    document.getElementById("body").style.background = "rgba(0, 0, 0, 0)";
+    let modal = document.getElementById("h2p-container");
+    let blocker = document.getElementById("blocker");
+    modal.style.display = "none";
+    blocker.style.display = "none";
+}
