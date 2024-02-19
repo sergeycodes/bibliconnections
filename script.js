@@ -70,7 +70,7 @@ function checkCatagory() {
         groupCatagory(selectedLables, "purple");
 
     } else {
-        minusMistake();
+        minusMistake(selectedLables);
     }
 }
 
@@ -321,10 +321,18 @@ function groupCatagory(arr, color) {
 
 function swap(arr1, arr2) {
     for(let i = 0; i < arr1.length; i++) {
-        let temp = arr1[i].innerHTML;
-        arr1[i].innerHTML = document.getElementById(arr2[i]).innerHTML;
-        document.getElementById(arr2[i]).innerHTML = temp; 
+        swapAnimation(arr1[i].id, arr2[i]);
     }
+}
+
+function swapAnimation(label1, label2) {
+    let button1 = document.getElementById(label1);
+    let button2 = document.getElementById(label2);
+
+    let temp = button1.innerHTML;
+    button1.innerHTML = button2.innerHTML;
+    button2.innerHTML = temp;
+
 }
 
 function groupRow() {
@@ -377,15 +385,57 @@ function addRowDetails(row, color) {
 }
 
 
-function minusMistake() {
+function minusMistake(selectedLables) {
     let label = "m";
     let button = document.getElementById(label + numOfMistakes);
-    button.style.display = "none";
+
+    mistakeAnimation(button);
+    //button.style.display = "none";
     numOfMistakes--;
+
+    selectedLablesShake(selectedLables);
     
     if (numOfMistakes === 0) {
         
         //resetMistakes();
+    }
+}
+
+function mistakeAnimation(button) {
+    button.style.transition = "transform 0.5s";
+    button.style.transform = "scale(2)";
+    button.style.transition = "transform 0.5s";
+    setInterval(() => {
+        button.style.transform = "scale(0)";
+    }, 500);
+
+    setInterval(() => {
+        button.style.display = "none";
+    }, 1000);
+}
+
+function selectedLablesShake(selectedLables) {
+
+    
+    for (let i = 0; i < selectedLables.length; i++) {
+        let button = document.getElementById(selectedID[i]);
+
+        button.style.transition = "transform 0.5s";
+        button.style.transform = "scale(1.1)";
+
+        button.style.animation = "0.5s";
+        setTimeout(() => {
+            button.style.animation = "shake 0.5s";
+        }, 500);
+        
+
+        setTimeout(() => {
+            button.style.animation = "none";
+            button.style.transition = "transform 0.5s";
+            button.style.transform = "scale(1)";
+        }, 1250);
+
+       
     }
 }
 
