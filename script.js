@@ -45,9 +45,6 @@ function selectButton(label) {
         selectedLables = selectedLables.filter(item => item !== button.innerHTML);
         selectedID = selectedID.filter(item => item !== label);
     }
-
-    console.log( selectedLables);
-    console.log(selectedID);
 }
 
 function checkCatagory() {
@@ -352,9 +349,7 @@ function addRowDetails(row, color) {
 
     let labels = document.querySelectorAll("#" + rowID + " label");
 
-    console.log(labels);
     for(let i = 0; i < labels.length; i++) {
-        console.log(labels[i]);
         labels[i].style.zIndex = "-1";
     }
 
@@ -469,7 +464,6 @@ function shuffle() {
 
         //store all the shuffled lables in local storage
         localStorage.setItem(tempLabel, cat);
-        console.log("TEMP LABEL: " + tempLabel + " CAT: " + cat + "AVAILABLE LABELS: " + availableLabels);
     }
 }
 
@@ -505,7 +499,6 @@ function closeH2P() {
 }
 
 function checkLocalStorage() {
-    console.log(localStorage.getItem("shuffle"));
     if ( localStorage.getItem("shuffle") === null) {
         shuffle();
         localStorage.setItem("shuffle", "false");
