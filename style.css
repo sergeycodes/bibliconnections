@@ -164,6 +164,87 @@ nav ul {
     width: 632px;
 }
 
+#results-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    width: 540px;
+    border: 1px solid #000;
+    margin: -290px 0 0 -270px;
+    padding-bottom: 40px;
+}
+
+#list-of-guesses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#list-of-guesses div {
+    margin: 4px 0;
+}
+
+#list-of-guesses div dt {
+    display: flex;
+}
+
+#list-of-guesses div dt span{
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+
+}
+
+#game-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#game-result h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+#game-result h3 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+#game-result p {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 12px 0 ;
+}
+
+#results-container ul {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    flex-direction: row;
+    list-style: none;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+#results-container ul li a{
+    font-size: 30px;
+    font-weight: 200;
+    cursor: pointer;
+}
+
 #blocker {
     position: absolute;
     width: 100%;

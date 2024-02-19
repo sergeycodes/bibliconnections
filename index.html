@@ -25,6 +25,24 @@
         </div>
     </div>
 
+    <div id="results-container">
+        <ul><li><a onclick="closeResults()">x</a></li></ul>
+        <div id="game-result">
+            <h2>Next Time!</h2>
+            <h3>BibliCo #001</h3>
+            
+            <dl id="list-of-guesses">
+               
+            </dl>
+
+            <p>NEXT BibliCo IN</p>
+            <div>
+                <div>10: 12: 23</div>
+            </div>
+
+        </div>
+    </div>
+
     <article>
        <div class="game-module">
             <form action="">
@@ -92,7 +110,7 @@
                 </span>
                 <section class="button-module">
                     <button type="button" onclick="checkCatagory()" id="submit-button">Submit</button>
-                    <button type="button" onclick="viewResults()" id="view-results">View Results</button>
+                    <button type="button" onclick="openResults()" id="view-results">View Results</button>
                 </section>
             </form>
         </div> 

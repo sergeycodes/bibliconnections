@@ -48,6 +48,7 @@ function selectButton(label) {
 }
 
 function checkCatagory() {
+    let copySelected = selectedLables.slice();
     catagory_yellow.sort();
     catagory_green.sort();
     catagory_blue.sort();
@@ -55,19 +56,68 @@ function checkCatagory() {
     selectedLables.sort();
     if(isEqual(catagory_yellow, selectedLables)){
         groupCatagory(selectedLables, "yellow");
+        displayGuesses([yellow, yellow, yellow, yellow], answeredCatagory);
   
     } else if (isEqual(catagory_green, selectedLables)) {
         groupCatagory(selectedLables, "green");
+        displayGuesses([green, green, green, green], answeredCatagory);
  
     } else if (isEqual(catagory_blue, selectedLables)) {
         groupCatagory(selectedLables, "blue");
+        displayGuesses([blue, blue, blue, blue], answeredCatagory);
    
     } else if (isEqual(catagory_purple, selectedLables)) {
         groupCatagory(selectedLables, "purple");
+        displayGuesses([purple, purple, purple, purple], answeredCatagory);
 
     } else {
         minusMistake(selectedLables);
+
+        let color = [];
+        if (catagory_yellow.includes(copySelected[0])) {
+            color.push(yellow);
+        } else if (catagory_green.includes(copySelected[0])) {
+            color.push(green);
+        } else if (catagory_blue.includes(copySelected[0])) {
+            color.push(blue);
+        } else {
+            color.push(purple);
+        }
+
+        if (catagory_yellow.includes(copySelected[1])) {
+            color.push(yellow);
+        } else if (catagory_green.includes(copySelected[1])) {
+            color.push(green);
+        } else if (catagory_blue.includes(copySelected[1])) {
+            color.push(blue);
+        } else {
+            color.push(purple);
+        }
+
+        if (catagory_yellow.includes(copySelected[2])) {
+            color.push(yellow);
+        } else if (catagory_green.includes(copySelected[2])) {
+            color.push(green);
+        } else if (catagory_blue.includes(copySelected[2])) {
+            color.push(blue);
+        } else {
+            color.push(purple);
+        }
+
+        if (catagory_yellow.includes(copySelected[3])) {
+            color.push(yellow);
+        } else if (catagory_green.includes(copySelected[3])) {
+            color.push(green);
+        } else if (catagory_blue.includes(copySelected[3])) {
+            color.push(blue);
+        } else {
+            color.push(purple);
+        }
+        let temp = answeredCatagory + 3 - numOfMistakes;
+        displayGuesses(color, temp);
     }
+
+    
 }
 
 function isEqual(arr1, arr2) {
@@ -546,9 +596,69 @@ function checkLocalStorage() {
         addRowDetails("four", localStorage.getItem("row-four"));
         answeredCatagory++;
     }
+
+    console.log(localStorage.getItem(0));
+    console.log(localStorage.getItem(5));
+    if(localStorage.getItem(0) !== null) {
+        let color = localStorage.getItem(0).split(",");
+        displayGuesses(color, 0);
+    }
+    if(localStorage.getItem(1) !== null) {
+        let color = localStorage.getItem(1).split(",");
+        displayGuesses(color, 1);
+    }
+    if(localStorage.getItem(2) !== null) {
+        let color = localStorage.getItem(2).split(",");
+        displayGuesses(color, 2);
+    }
+    if(localStorage.getItem(3) !== null) {
+        let color = localStorage.getItem(3).split(",");
+        displayGuesses(color, 3);    }
+    if(localStorage.getItem(4) !== null) {
+        let color = localStorage.getItem(4).split(",");
+        displayGuesses(color, 4);    }
+    if(localStorage.getItem(5) !== null) {
+        let color = localStorage.getItem(5).split(",");
+        displayGuesses(color, 5);    }
+    if(localStorage.getItem(6) !== null) {
+        let color = localStorage.getItem(6).split(",");
+        displayGuesses(color, 6);    }
+    if(localStorage.getItem(7) !== null) {
+        let color = localStorage.getItem(7).split(",");
+        console.log(localStorage.getItem(7));
+        displayGuesses(color, 7);    }
+    if(localStorage.getItem(8) !== null) {
+        let color = localStorage.getItem(8).split(",");
+        displayGuesses(color, 8);    }
+}
+
+function displayGuesses(color, row) {
+    let list = document.getElementById("list-of-guesses");
+
+    list.innerHTML += '<div>  <dt> <span style="background-color: ' + color[0] + ' "></span> <span style="background-color: ' + color[1] + ' "></span> <span style="background-color: ' + color[2] + ' "></span> <span style="background-color: ' + color[3] + ' "></span> </dt> </div>';
+    localStorage.setItem(row, color);
 }
 
 function resetBoard() {
     localStorage.clear();
     location.reload();
+}
+
+function openResults() {
+    document.getElementById("body").style.background = "rgba(0, 0, 0, 0.5)";
+    let modal = document.getElementById("results-container");
+    let blocker = document.getElementById("blocker");
+    modal.style.display = "flex";
+    blocker.style.display = "flex";
+ 
+    
+}
+
+function closeResults() {
+    document.getElementById("body").style.background = "rgba(0, 0, 0, 0)";
+    let modal = document.getElementById("results-container");
+    let blocker = document.getElementById("blocker");
+    modal.style.display = "none";
+    blocker.style.display = "none";
+
 }
