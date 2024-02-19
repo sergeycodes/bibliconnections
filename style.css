@@ -377,6 +377,12 @@ form span {
     border: 1px solid;
 }
 
+#view-results {
+    display: none;
+    width: 100px;
+
+}
+
 @media(max-width: 700px) {
     .game-board label {
         width: 92px;

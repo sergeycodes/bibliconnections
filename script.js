@@ -22,10 +22,10 @@ const purple_title = "Birds";
 const catagory_purple = ["Crane", "Jay", "Swallow", "Owl"];
 const purple_definition = "Crane, Jay, Swallow, Owl";
 
-let yellow = "#FFD700";
-let green = "#00FF00";
-let blue = "#0000FF";
-let purple = "#800080";
+let yellow = "#FFF89A";
+let green = "#79AC78";
+let blue = "#82A0D8";
+let purple = "#BEADFA";
 
 let numOfMistakes = 4;
 
@@ -88,13 +88,13 @@ function isEqual(arr1, arr2) {
 function groupCatagory(arr, color) {
     let currColor = "";
     if (color === "yellow") {
-        currColor = "#FFD700";
+        currColor = yellow;
     } else if (color === "green") {
-        currColor = "#00FF00";
+        currColor = green;
     } else if (color === "blue") {
-        currColor = "#0000FF";
+        currColor = blue;
     } else {
-        currColor = "#800080";
+        currColor = purple;
     }
 
     if(answeredCatagory === 0) {
@@ -474,7 +474,15 @@ function shuffle() {
 }
 
 function endGame() {
-    
+    let mistakes_container = document.getElementById("mistakes-module");
+    mistakes_container.style.display = "none";
+
+    let submit_button = document.getElementById("submit-button");
+    let view_results_button = document.getElementById("view-results");
+    submit_button.style.display = "none";
+    view_results_button.style.display = "flex";
+
+    localStorage.setItem("endGame", "true");
 }
 
 function openH2P() {
@@ -503,6 +511,10 @@ function checkLocalStorage() {
         localStorage.setItem("shuffle", "false");
         return;
     } 
+
+    if(localStorage.getItem("endGame") === "true") {
+        endGame();
+    }
 
     let i = 0;
 
