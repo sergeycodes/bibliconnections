@@ -6,7 +6,7 @@
     <title>Connections</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="shuffle()" id="body">
+<body onload="checkLocalStorage()" id="body">
     <div id="blocker" onclick="closeH2P()"></div>
     <div class="titlebar">
         <em>Connections</em>
@@ -15,7 +15,7 @@
     <div class="toolbar-container">
         <ul class="toolbar">
             <li><a onclick="openH2P()"><img src="images/question-mark-icon.png" alt=""></a></li>
-            <li><a onclick=""><img src="images/settings-icon.png" alt=""></a></li>
+            <li><a onclick="resetBoard()"><img src="images/settings-icon.png" alt=""></a></li>
         </ul>
     </div>
     <div id="h2p-container">

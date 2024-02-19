@@ -29,7 +29,6 @@ let purple = "#800080";
 
 let numOfMistakes = 4;
 
-
 function selectButton(label) {
     let button = document.getElementById(label);
     
@@ -333,6 +332,9 @@ function swapAnimation(label1, label2) {
     button1.innerHTML = button2.innerHTML;
     button2.innerHTML = temp;
 
+    localStorage.setItem(label1, button1.innerHTML);
+    localStorage.setItem(label2, button2.innerHTML);
+
 }
 
 function groupRow() {
@@ -357,6 +359,7 @@ function addRowDetails(row, color) {
     }
 
     rowDiv.style.background = color;
+    localStorage.setItem(rowID, color);
 
     let title = "";
     let definition = "";
@@ -388,6 +391,7 @@ function addRowDetails(row, color) {
 function minusMistake(selectedLables) {
     let label = "m";
     let button = document.getElementById(label + numOfMistakes);
+    localStorage.setItem("m" + numOfMistakes, "false");
 
     mistakeAnimation(button);
     //button.style.display = "none";
@@ -448,7 +452,7 @@ function resetMistakes() {
 }
 
 function shuffle() {
-    //let availableItem = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
+    localStorage.setItem("shuffle", "true");
     let availableLabels = ["b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12", "b13", "b14", "b15"];
     let availableItem = catagory_yellow.concat(catagory_green, catagory_blue, catagory_purple);
 
@@ -462,15 +466,15 @@ function shuffle() {
         document.getElementById(tempLabel).innerHTML = cat;
         availableItem = availableItem.filter(item => item !== cat);
         availableLabels = availableLabels.filter(item => item !== tempLabel);
+
+        //store all the shuffled lables in local storage
+        localStorage.setItem(tempLabel, cat);
+        console.log("TEMP LABEL: " + tempLabel + " CAT: " + cat + "AVAILABLE LABELS: " + availableLabels);
     }
 }
 
 function endGame() {
     
-}
-
-function resetBoard() {
-
 }
 
 function openH2P() {
@@ -479,6 +483,7 @@ function openH2P() {
     let blocker = document.getElementById("blocker");
     modal.style.display = "flex";
     blocker.style.display = "flex";
+    localStorage.setItem("H2P", "true");
     
 }
 
@@ -488,4 +493,57 @@ function closeH2P() {
     let blocker = document.getElementById("blocker");
     modal.style.display = "none";
     blocker.style.display = "none";
+    localStorage.setItem("H2P", "false");
+}
+
+function checkLocalStorage() {
+    console.log(localStorage.getItem("shuffle"));
+    if ( localStorage.getItem("shuffle") === null) {
+        shuffle();
+        localStorage.setItem("shuffle", "false");
+        return;
+    } 
+
+    let i = 0;
+
+    while (i < 16) {
+        let label = "b" + i;
+        let cat = localStorage.getItem(label);
+        if (cat !== null) {
+            document.getElementById(label).innerHTML = cat;
+        }
+        i++;
+    }
+
+    i = 1;
+    while (i <= 4) {
+        let mistake = "m" + i;
+        let isMistake = localStorage.getItem(mistake);
+        if (isMistake === "false") {
+            let button = document.getElementById(mistake);
+            button.style.display = "none";
+        }
+        i++;
+    }
+    if(localStorage.getItem("row-one") !== null) {
+        addRowDetails("one", localStorage.getItem("row-one"));
+        answeredCatagory++;
+    } 
+    if(localStorage.getItem("row-two") !== null) {
+        addRowDetails("two", localStorage.getItem("row-two"));
+        answeredCatagory++;
+    }
+    if(localStorage.getItem("row-three") !== null) {
+        addRowDetails("three", localStorage.getItem("row-three"));
+        answeredCatagory++;
+    }
+    if(localStorage.getItem("row-four") !== null) {
+        addRowDetails("four", localStorage.getItem("row-four"));
+        answeredCatagory++;
+    }
+}
+
+function resetBoard() {
+    localStorage.clear();
+    location.reload();
 }
