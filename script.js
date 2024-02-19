@@ -401,7 +401,7 @@ function minusMistake(selectedLables) {
     
     if (numOfMistakes === 0) {
         
-        //resetMistakes();
+        endGame();
     }
 }
 
