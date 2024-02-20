@@ -46,7 +46,7 @@ function selectButton(label) {
         selectedID = selectedID.filter(item => item !== label);
     }
 }
-
+console.log(localStorage)
 function checkCatagory() {
     let copySelected = selectedLables.slice();
     catagory_yellow.sort();
@@ -56,19 +56,23 @@ function checkCatagory() {
     selectedLables.sort();
     if(isEqual(catagory_yellow, selectedLables)){
         groupCatagory(selectedLables, "yellow");
-        displayGuesses([yellow, yellow, yellow, yellow], answeredCatagory);
+        let temp = answeredCatagory + 4 - numOfMistakes;
+        displayGuesses([yellow, yellow, yellow, yellow], temp);
   
     } else if (isEqual(catagory_green, selectedLables)) {
         groupCatagory(selectedLables, "green");
-        displayGuesses([green, green, green, green], answeredCatagory);
+        let temp = answeredCatagory + 4 - numOfMistakes;
+        displayGuesses([green, green, green, green], temp);
  
     } else if (isEqual(catagory_blue, selectedLables)) {
         groupCatagory(selectedLables, "blue");
-        displayGuesses([blue, blue, blue, blue], answeredCatagory);
+        let temp = answeredCatagory + 4 - numOfMistakes;
+        displayGuesses([blue, blue, blue, blue], temp);
    
     } else if (isEqual(catagory_purple, selectedLables)) {
         groupCatagory(selectedLables, "purple");
-        displayGuesses([purple, purple, purple, purple], answeredCatagory);
+        let temp = answeredCatagory + 4 - numOfMistakes;
+        displayGuesses([purple, purple, purple, purple], temp);
 
     } else {
         minusMistake(selectedLables);
@@ -113,7 +117,8 @@ function checkCatagory() {
         } else {
             color.push(purple);
         }
-        let temp = answeredCatagory + 3 - numOfMistakes;
+        let temp = answeredCatagory + 4 - numOfMistakes;
+        console.log(temp);
         displayGuesses(color, temp);
     }
 
@@ -199,6 +204,7 @@ function groupCatagory(arr, color) {
         selectedID = [];
         answeredCatagory++;
         numberOfSelectedLabels = 0;
+        localStorage.setItem("answered-catagory", answeredCatagory);
 
     } else if (answeredCatagory === 1) {
         let b4 = document.getElementById("b4");
@@ -251,6 +257,7 @@ function groupCatagory(arr, color) {
         selectedID = [];
         answeredCatagory++;
         numberOfSelectedLabels = 0;
+        localStorage.setItem("answered-catagory", answeredCatagory);
 
     } else if (answeredCatagory === 2) {
         let b8 = document.getElementById("b8");
@@ -305,6 +312,8 @@ function groupCatagory(arr, color) {
         selectedID = [];
         answeredCatagory++;
         numberOfSelectedLabels = 0;
+        localStorage.setItem("answered-catagory", answeredCatagory);
+
 
     } else if (answeredCatagory === 3) {
         let b12 = document.getElementById("b12");
@@ -359,6 +368,7 @@ function groupCatagory(arr, color) {
         selectedID = [];
         answeredCatagory++;
         numberOfSelectedLabels = 0;
+        localStorage.setItem("answered-catagory", answeredCatagory);
 
 
         endGame();
@@ -527,10 +537,11 @@ function endGame() {
     view_results_button.style.display = "flex";
 
     localStorage.setItem("endGame", "true");
+    localStorage.setItem("view-results", "true");
 }
 
 function openH2P() {
-    document.getElementById("body").style.background = "rgba(0, 0, 0, 0.5)";
+    document.getElementById("body").style.background = "rgba(0, 0, 0, 0.3)";
     let modal = document.getElementById("h2p-container");
     let blocker = document.getElementById("blocker");
     modal.style.display = "flex";
@@ -582,19 +593,22 @@ function checkLocalStorage() {
     }
     if(localStorage.getItem("row-one") !== null) {
         addRowDetails("one", localStorage.getItem("row-one"));
-        answeredCatagory++;
+        
+        
+
     } 
     if(localStorage.getItem("row-two") !== null) {
         addRowDetails("two", localStorage.getItem("row-two"));
-        answeredCatagory++;
+        
+
     }
     if(localStorage.getItem("row-three") !== null) {
         addRowDetails("three", localStorage.getItem("row-three"));
-        answeredCatagory++;
+        
     }
     if(localStorage.getItem("row-four") !== null) {
         addRowDetails("four", localStorage.getItem("row-four"));
-        answeredCatagory++;
+       
     }
 
     console.log(localStorage.getItem(0));
@@ -613,30 +627,47 @@ function checkLocalStorage() {
     }
     if(localStorage.getItem(3) !== null) {
         let color = localStorage.getItem(3).split(",");
-        displayGuesses(color, 3);    }
+        displayGuesses(color, 3);    
+    }
     if(localStorage.getItem(4) !== null) {
         let color = localStorage.getItem(4).split(",");
-        displayGuesses(color, 4);    }
+        displayGuesses(color, 4);    
+    }
     if(localStorage.getItem(5) !== null) {
         let color = localStorage.getItem(5).split(",");
-        displayGuesses(color, 5);    }
+        displayGuesses(color, 5);    
+    }
     if(localStorage.getItem(6) !== null) {
         let color = localStorage.getItem(6).split(",");
-        displayGuesses(color, 6);    }
+        displayGuesses(color, 6);    
+    }
     if(localStorage.getItem(7) !== null) {
         let color = localStorage.getItem(7).split(",");
         console.log(localStorage.getItem(7));
-        displayGuesses(color, 7);    }
+        displayGuesses(color, 7);    
+    }
     if(localStorage.getItem(8) !== null) {
         let color = localStorage.getItem(8).split(",");
-        displayGuesses(color, 8);    }
+        displayGuesses(color, 8);    
+    }
+
+    if(localStorage.getItem("answered-catagory") !== null) {
+        answeredCatagory = localStorage.getItem("answered-catagory");
+    }
+
+    if(localStorage.getItem("view-results") === "true") {
+        openResults();
+    }
+
+
 }
 
 function displayGuesses(color, row) {
     let list = document.getElementById("list-of-guesses");
-
+    console.log("ROW: " + row);
     list.innerHTML += '<div>  <dt> <span style="background-color: ' + color[0] + ' "></span> <span style="background-color: ' + color[1] + ' "></span> <span style="background-color: ' + color[2] + ' "></span> <span style="background-color: ' + color[3] + ' "></span> </dt> </div>';
     localStorage.setItem(row, color);
+    
 }
 
 function resetBoard() {
@@ -645,7 +676,7 @@ function resetBoard() {
 }
 
 function openResults() {
-    document.getElementById("body").style.background = "rgba(0, 0, 0, 0.5)";
+    document.getElementById("body").style.background = "rgba(0, 0, 0, 0.3)";
     let modal = document.getElementById("results-container");
     let blocker = document.getElementById("blocker");
     modal.style.display = "flex";
