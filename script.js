@@ -10,6 +10,12 @@ let currDate = d.getMonth() + " " + d.getDate() + " " + d.getFullYear();
 // reset storage for testing
 localStorage.clear();
 
+const APP_VERSION = '2025-11-07-v1'; // bump this string when you deploy changes to categories
+if (localStorage.getItem('appVersion') !== APP_VERSION) {
+    localStorage.clear();
+    localStorage.setItem('appVersion', APP_VERSION);
+}
+
 let answeredCatagory = 0;
 
 const yellow_title = "Disciples";
