@@ -1,15 +1,3 @@
-2 18 2024
-Household Pets ; cat, dog, fish, hamster
-Fruits ; Kiwi, Lemon, Banana, Orange
-Countries ; Chili, Turkey, Jordan, Togo
-Birds ; Crane, Jay, Swallow, Owl
-
-2 25 2024
-Connections ; Network, Link, Bond, Bridge
-Emotions ; Joy, Anger, Fear, Trust
-Musical Instruments ; Harp, Drum, Flute, Cello
-Programming Languages ; Python, Rust, Ruby, Go
-
 11 7 2025
 Disciples ; Peter, James, John, Andrew
 Books of the Bible ; Genesis, Psalms, Matthew, Revelation
