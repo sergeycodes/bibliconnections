@@ -7,20 +7,26 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 today.innerHTML = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
 let currDate = d.getMonth() + " " + d.getDate() + " " + d.getFullYear();
 
+// reset storage for testing
+localStorage.clear();
+
 let answeredCatagory = 0;
 
-const yellow_title = "Fruits";
-const catagory_yellow = ["Kiwi", "Lemon", "Banana", "Orange"];
-const yellow_definition = "Kiwi, Lemon, Banana, Orange";
-const green_title = "Household Pets";
-const catagory_green = ["Cat", "Dog", "Fish", "Hamster"];
-const green_definition = "Cat, Dog, Fish, Hamster";
-const blue_title = "Countries";
-const catagory_blue = ["Chili", "Turkey", "Jordan", "Togo"];
-const blue_definition = "Chili, Turkey, Jordan, Togo";
-const purple_title = "Birds";
-const catagory_purple = ["Crane", "Jay", "Swallow", "Owl"];
-const purple_definition = "Crane, Jay, Swallow, Owl";
+const yellow_title = "Disciples";
+const catagory_yellow = ["Peter", "James", "John", "Andrew"];
+const yellow_definition = "Peter, James, John, Andrew";
+
+const green_title = "Books of the Bible";
+const catagory_green = ["Genesis", "Psalms", "Matthew", "Revelations"];
+const green_definition = "Genesis, Psalms, Matthew, Revelations";
+
+const blue_title = "Old Testament Prophets";
+const catagory_blue = ["Isaiah", "Jeremiah", "Ezekiel", "Daniel"];
+const blue_definition = "Isaiah, Jeremiah, Ezekiel, Daniel";
+
+const purple_title = "Biblical Locations";
+const catagory_purple = ["Bethlehem", "Nazareth", "Jerusalem", "Galilee"];
+const purple_definition = "Bethlehem, Nazareth, Jerusalem, Galilee";
 
 let yellow = "#FFF89A";
 let green = "#79AC78";
@@ -537,7 +543,7 @@ function endGame() {
     view_results_button.style.display = "flex";
 
     localStorage.setItem("endGame", "true");
-    localStorage.setItem("view-results", "true");
+    // localStorage.setItem("view-results", "true");
 }
 
 function openH2P() {

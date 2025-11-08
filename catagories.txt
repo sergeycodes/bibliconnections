@@ -4,11 +4,14 @@ Fruits ; Kiwi, Lemon, Banana, Orange
 Countries ; Chili, Turkey, Jordan, Togo
 Birds ; Crane, Jay, Swallow, Owl
 
-
-
 2 25 2024
+Connections ; Network, Link, Bond, Bridge
+Emotions ; Joy, Anger, Fear, Trust
+Musical Instruments ; Harp, Drum, Flute, Cello
+Programming Languages ; Python, Rust, Ruby, Go
 
-
-
-
-3 3 2024
+11 7 2025
+Disciples ; Peter, James, John, Andrew
+Books of the Bible ; Genesis, Psalms, Matthew, Revelation
+Old Testament Prophets ; Isaiah, Jeremiah, Ezekiel, Daniel
+Biblical Locations ; Bethlehem, Nazareth, Jerusalem, Galilee
